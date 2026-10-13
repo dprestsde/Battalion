@@ -140,11 +140,11 @@ describe("SessionPromptComposer", () => {
   it("disables autofill suggestions for the prompt", () => {
     render(<ComposerHarness />);
 
-    expect(screen.getByPlaceholderText("Ask or build anything")).toHaveAttribute(
+    expect(screen.getByPlaceholderText("What should we build today?")).toHaveAttribute(
       "autocomplete",
       "off"
     );
-    expect(screen.getByPlaceholderText("Ask or build anything")).toHaveAttribute(
+    expect(screen.getByPlaceholderText("What should we build today?")).toHaveAttribute(
       "maxlength",
       String(MAX_WEB_PROMPT_CHARS)
     );
@@ -168,7 +168,7 @@ describe("SessionPromptComposer", () => {
       .mockReturnValue(48);
     render(<ComposerHarness />);
 
-    const input = screen.getByPlaceholderText<HTMLTextAreaElement>("Ask or build anything");
+    const input = screen.getByPlaceholderText<HTMLTextAreaElement>("What should we build today?");
     expect(input).toHaveAttribute("rows", "1");
     expect(input).toHaveStyle({ height: "48px" });
 
@@ -245,7 +245,7 @@ describe("SessionPromptComposer", () => {
   it("offers pinned skills in the follow-up textarea", async () => {
     const user = userEvent.setup();
     render(<ComposerHarness withSkill />);
-    const input = screen.getByPlaceholderText("Ask or build anything");
+    const input = screen.getByPlaceholderText("What should we build today?");
 
     await user.click(input);
     await user.type(input, "$rev");
