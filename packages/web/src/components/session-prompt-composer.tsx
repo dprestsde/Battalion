@@ -142,7 +142,9 @@ export function SessionPromptComposer({
               disabled={prompt.draftLocked}
               onPaste={handlePaste}
               autoComplete="off"
-              placeholder={prompt.isProcessing ? "Add a follow-up..." : "Ask or build anything"}
+              placeholder={
+                prompt.isProcessing ? "Add a follow-up..." : "What should we build today?"
+              }
               className="min-h-12 max-h-40 w-0 min-w-48 flex-1 resize-none overflow-y-auto bg-transparent px-4 py-3 leading-6 text-foreground placeholder:text-secondary-foreground focus:outline-none sm:block sm:min-h-[7.75rem] sm:w-full sm:px-4 sm:pt-4 sm:pb-12"
               rows={1}
             />
